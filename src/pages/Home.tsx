@@ -1,4 +1,5 @@
 import { useFetchRepositories } from '../hooks/useRepos';
+import { Card } from '../components/molecules';
 
 const Home = () => {
    const { data, isLoading } = useFetchRepositories();
@@ -9,8 +10,8 @@ const Home = () => {
 
    return (
       <div>
-         {data?.map((d) => (
-            <h1>{d.name}</h1>
+         {data?.map((repo) => (
+            <Card key={repo.id} repo={repo} />
          ))}
       </div>
    );
