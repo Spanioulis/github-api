@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from './queryClient';
 import Home from './pages/Home';
 import { GlobalStyle } from './styles';
 
@@ -13,7 +15,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
    <React.StrictMode>
-      <GlobalStyle />
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+         <GlobalStyle />
+         <RouterProvider router={router} />
+      </QueryClientProvider>
    </React.StrictMode>
 );
