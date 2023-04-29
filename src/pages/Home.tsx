@@ -6,6 +6,7 @@ const Home = () => {
    const { data, isLoading } = useFetchRepositories();
    const { favoriteReposIds } = useFavoriteReposStore();
 
+   // TODO -> Añadir un spinner
    if (isLoading) return <div>Is loading...</div>;
 
    console.log(data);
@@ -13,7 +14,7 @@ const Home = () => {
    return (
       <div>
          {data?.map((repo) => (
-            <Card key={repo.id} repo={repo} />
+            <Card key={repo.id} repo={repo} isFavorite={favoriteReposIds.includes(repo.id)} />
          ))}
       </div>
    );
