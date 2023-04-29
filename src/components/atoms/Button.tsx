@@ -6,10 +6,10 @@ const ButtonStyled = styled.button<ButtonProps>`
    display: flex;
    align-items: center;
    justify-content: center;
-   background-color: ${({ backgroundColor }) => backgroundColor || colors.primary};
+   background-color: ${({ backgroundColor }) => backgroundColor || colors.corn};
    border-radius: ${dimensions.borderRadius.base};
    border: none;
-   color: ${colors.white};
+   color: ${colors.primary};
    cursor: pointer;
    font-weight: 700;
    margin: ${dimensions.spacing.xs};
