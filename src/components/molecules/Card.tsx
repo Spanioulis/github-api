@@ -43,7 +43,9 @@ const Card = ({ repo, isFavorite }: CardProps) => {
             <Title as="h1" color={colors.primary}>
                {repo.name}
             </Title>
-            <Link to={repo.html_url}>{repo.html_url}</Link>
+            <Link to={repo.html_url} target="_blank" rel="noopener noreferrer">
+               {repo.html_url}
+            </Link>
          </FlexBox>
          <Text color={colors.primary}>{repo.language}</Text>
          <Text color={colors.purple.purple2}>
