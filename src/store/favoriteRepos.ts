@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 type FavoriteReposProps = {
    favoriteReposIds: number[];
@@ -6,16 +7,24 @@ type FavoriteReposProps = {
    removeFavoriteRepo: (id: number) => void;
 };
 
-const useFavoriteReposStore = create<FavoriteReposProps>((set) => ({
-   favoriteReposIds: [],
-   addFavoriteRepo: (id: number) =>
-      set((state) => ({
-         favoriteReposIds: [...state.favoriteReposIds, id]
-      })),
-   removeFavoriteRepo: (id: number) =>
-      set((state) => ({
-         favoriteReposIds: state.favoriteReposIds.filter((repoId) => repoId !== id)
-      }))
-}));
+const useFavoriteReposStore = create(
+   // Se agregan/guardan todas las acciones que hagamos dentro del local storage
+   persist<FavoriteReposProps>(
+      (set) => ({
+         favoriteReposIds: [],
+         addFavoriteRepo: (id: number) =>
+            set((state) => ({
+               favoriteReposIds: [...state.favoriteReposIds, id]
+            })),
+         removeFavoriteRepo: (id: number) =>
+            set((state) => ({
+               favoriteReposIds: state.favoriteReposIds.filter((repoId) => repoId !== id)
+            }))
+      }),
+      {
+         name: 'favorite-repos'
+      }
+   )
+);
 
 export { useFavoriteReposStore };

@@ -1,6 +1,7 @@
 import { useFetchRepositories } from '../hooks/useRepos';
 import { Card } from '../components/molecules';
 import { useFavoriteReposStore } from '../store/favoriteRepos'; // Estado Local
+import { FlexBox } from '../styles';
 
 const Home = () => {
    const { data, isLoading } = useFetchRepositories();
@@ -12,11 +13,11 @@ const Home = () => {
    console.log(data);
 
    return (
-      <div>
+      <FlexBox direction="row" wrap="wrap">
          {data?.map((repo) => (
             <Card key={repo.id} repo={repo} isFavorite={favoriteReposIds.includes(repo.id)} />
          ))}
-      </div>
+      </FlexBox>
    );
 };
 
