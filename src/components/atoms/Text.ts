@@ -8,7 +8,7 @@ type TextProps = HTMLAttributes<HTMLParagraphElement> & {
 };
 
 const Text = styled.p<TextProps>`
-   color: ${({ color }) => color || colors.gray.gray3};
+   color: ${({ color }) => color || colors.gray.gray1};
    font-size: ${({ size }) => size || dimensions.font.base};
    font-weight: ${({ weight }) => weight || 'normal'};
 `;

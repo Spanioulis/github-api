@@ -6,7 +6,7 @@ const ButtonStyled = styled.button<ButtonProps>`
    display: flex;
    align-items: center;
    justify-content: center;
-   background-color: ${({ backgroundColor }) => backgroundColor || colors.corn};
+   background-color: ${({ backgroundColor }) => backgroundColor || colors.gray.gray2};
    border-radius: ${dimensions.borderRadius.base};
    border: none;
    color: ${colors.primary};
@@ -14,7 +14,7 @@ const ButtonStyled = styled.button<ButtonProps>`
    font-weight: 700;
    margin: ${dimensions.spacing.xs};
    padding: ${dimensions.spacing.xs};
-   width: 250px;
+   width: 150px;
 
    &:focus {
       outline: 2px solid ${colors.gray.gray1};
