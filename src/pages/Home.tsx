@@ -4,7 +4,7 @@ import { useFavoriteReposStore } from '../store/favoriteRepos'; // Estado Local
 import { FlexBox } from '../styles';
 
 const Home = () => {
-   const { data, isLoading } = useFetchRepositories();
+   const { data, isLoading } = useFetchRepositories('Spanioulis');
    const { favoriteReposIds } = useFavoriteReposStore();
 
    // TODO -> Añadir un spinner
